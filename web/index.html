@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Perfume Semantic Search</title>
+  <meta name="description" content="Describe the scent you have in mind and find matching perfumes, in English or Arabic.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200..600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+
+  <header class="top">
+    <a class="wordmark" href="/" data-i18n="brand">Perfume Semantic Search</a>
+    <button class="lang" id="langToggle" type="button" aria-label="Switch language">عربي</button>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="heroTitle">
+      <h1 id="heroTitle" data-i18n="heroTitle">Describe the scent you have in mind.</h1>
+      <p class="hero-sub" data-i18n="heroSub">Search 2,191 perfumes by mood, season or notes, in English or Arabic.</p>
+
+      <form class="blotter" id="searchForm" role="search">
+        <span class="blotter-tip" aria-hidden="true"></span>
+        <label class="visually-hidden" for="q" data-i18n="searchLabel">Describe a scent</label>
+        <input id="q" name="q" type="search" maxlength="300" autocomplete="off"
+               data-i18n-placeholder="searchPlaceholder" placeholder="warm vanilla for winter nights">
+        <button type="submit" class="blotter-go" data-i18n="searchButton">Find perfumes</button>
+      </form>
+
+      <div class="examples" id="examples" aria-label="Example searches"></div>
+    </section>
+
+    <section class="filters" aria-label="Filters">
+      <label class="field">
+        <span data-i18n="brandLabel">Brand</span>
+        <select id="brand"><option value="" data-i18n="allBrands">All brands</option></select>
+      </label>
+      <div class="field">
+        <button type="button" class="notes-button" id="notesButton" aria-expanded="false" aria-controls="notesPanel">
+          <span data-i18n="notesLabel">Notes</span>
+          <span class="notes-count" id="notesCount"></span>
+        </button>
+      </div>
+      <div class="chosen" id="chosenNotes" aria-live="polite"></div>
+      <button type="button" class="link" id="clearAll" hidden data-i18n="clearAll">Clear all</button>
+    </section>
+
+    <div class="notes-panel" id="notesPanel" hidden>
+      <p class="notes-help" data-i18n="notesHelp">Tap a note once to require it, twice to leave it out.</p>
+      <div id="notesGroups"></div>
+      <button type="button" class="link" id="notesDone" data-i18n="done">Done</button>
+    </div>
+
+    <section class="results" id="results" hidden aria-live="polite">
+      <div class="results-head">
+        <h2 id="resultsTitle"></h2>
+        <button type="button" class="link" id="backToShelves" data-i18n="backToShelves">Back to all scent families</button>
+      </div>
+      <p class="results-meta" id="resultsMeta"></p>
+      <p class="notice" id="notice" hidden></p>
+      <ol class="grid" id="resultsGrid"></ol>
+      <button type="button" class="more" id="loadMore" hidden data-i18n="loadMore">Show more</button>
+    </section>
+
+    <section class="shelves" id="shelves" aria-labelledby="shelvesTitle">
+      <h2 id="shelvesTitle" data-i18n="shelvesTitle">Scent families</h2>
+      <p class="shelves-sub" data-i18n="shelvesSub">Groups found automatically by comparing every perfume's notes. Each family is named after the notes it has most.</p>
+      <div id="shelfList"></div>
+    </section>
+  </main>
+
+  <aside class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerName" hidden>
+    <div class="drawer-inner">
+      <button type="button" class="drawer-close" id="drawerClose" data-i18n-aria="close" aria-label="Close">×</button>
+      <div class="drawer-body" id="drawerBody"></div>
+    </div>
+  </aside>
+  <div class="scrim" id="scrim" hidden></div>
+
+  <footer class="foot">
+    <div class="how">
+      <h2 data-i18n="howTitle">How it works</h2>
+      <p data-i18n="how1">Every perfume's name and notes were turned into a vector (a list of numbers that captures meaning) with Google's Gemini embedding model.</p>
+      <p data-i18n="how2">Your words are turned into a vector the same way, and the closest perfumes are shown first. Arabic and English share the same space, so both languages work.</p>
+      <p data-i18n="how3">If the embedding service is unavailable, the site switches to keyword matching so search keeps working.</p>
+    </div>
+    <p class="credits">
+      <span data-i18n="credits">Data: Perfume Recommendation Dataset on Kaggle (CC0). Product images belong to their owners.</span>
+      <a href="/docs" data-i18n="apiDocs">API docs</a>
+      <a href="#" id="repoLink" hidden data-i18n="sourceCode">Source code</a>
+    </p>
+  </footer>
+
+  <script src="/i18n.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,368 @@
+{
+  "model": "gemini-embedding-001",
+  "dim": 768,
+  "k": 10,
+  "overall": {
+    "queries": 30,
+    "random": 0.28,
+    "semantic_p10": 0.793,
+    "semantic_hit10": 1.0,
+    "keyword_p10": 0.22,
+    "keyword_hit10": 0.5,
+    "keyword_no_results": 0.5
+  },
+  "english": {
+    "queries": 15,
+    "random": 0.28,
+    "semantic_p10": 0.813,
+    "semantic_hit10": 1.0,
+    "keyword_p10": 0.44,
+    "keyword_hit10": 1.0,
+    "keyword_no_results": 0.0
+  },
+  "arabic": {
+    "queries": 15,
+    "random": 0.28,
+    "semantic_p10": 0.773,
+    "semantic_hit10": 1.0,
+    "keyword_p10": 0.0,
+    "keyword_hit10": 0.0,
+    "keyword_no_results": 1.0
+  },
+  "query_embedding_latency_ms": {
+    "median": 341.3,
+    "max": 608.0
+  },
+  "per_query": [
+    {
+      "id": "vanilla_winter",
+      "lang": "en",
+      "query": "warm vanilla perfume for cold winter nights",
+      "random": 0.5458694659972615,
+      "semantic_p10": 1.0,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.6,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "vanilla_winter",
+      "lang": "ar",
+      "query": "عطر فانيلا دافي لليالي الشتا الباردة",
+      "random": 0.5458694659972615,
+      "semantic_p10": 1.0,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "citrus_summer",
+      "lang": "en",
+      "query": "fresh citrus scent for hot summer days",
+      "random": 0.4381560931081698,
+      "semantic_p10": 0.9,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.4,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "citrus_summer",
+      "lang": "ar",
+      "query": "ريحة حمضيات منعشة لأيام الصيف الحارة",
+      "random": 0.4381560931081698,
+      "semantic_p10": 0.9,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "clean_laundry",
+      "lang": "en",
+      "query": "smells like clean laundry and soap",
+      "random": 0.38977635782747605,
+      "semantic_p10": 0.4,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.4,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "clean_laundry",
+      "lang": "ar",
+      "query": "ريحة غسيل نظيف وصابون",
+      "random": 0.38977635782747605,
+      "semantic_p10": 0.5,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "arabian_oud",
+      "lang": "en",
+      "query": "rich arabian oud",
+      "random": 0.12551346417161113,
+      "semantic_p10": 0.9,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.7,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "arabian_oud",
+      "lang": "ar",
+      "query": "عود عربي فخم",
+      "random": 0.12551346417161113,
+      "semantic_p10": 0.9,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "rose_bouquet",
+      "lang": "en",
+      "query": "a romantic bouquet of roses",
+      "random": 0.29666818804198997,
+      "semantic_p10": 1.0,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.9,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "rose_bouquet",
+      "lang": "ar",
+      "query": "باقة ورد رومانسية",
+      "random": 0.29666818804198997,
+      "semantic_p10": 1.0,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "dessert",
+      "lang": "en",
+      "query": "sweet gourmand that smells like desserts",
+      "random": 0.15335463258785942,
+      "semantic_p10": 0.7,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.1,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "dessert",
+      "lang": "ar",
+      "query": "عطر حلو ريحته زي الحلويات",
+      "random": 0.15335463258785942,
+      "semantic_p10": 0.7,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "smoky_leather",
+      "lang": "en",
+      "query": "smoky leather and tobacco",
+      "random": 0.19671382930168874,
+      "semantic_p10": 1.0,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.9,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "smoky_leather",
+      "lang": "ar",
+      "query": "جلد مدخّن مع تبغ",
+      "random": 0.19671382930168874,
+      "semantic_p10": 0.9,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "calm_sleep",
+      "lang": "en",
+      "query": "calming scent to relax before sleep",
+      "random": 0.24007302601551803,
+      "semantic_p10": 0.5,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.3,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "calm_sleep",
+      "lang": "ar",
+      "query": "ريحة هادية للاسترخاء قبل النوم",
+      "random": 0.24007302601551803,
+      "semantic_p10": 0.3,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "warm_spices",
+      "lang": "en",
+      "query": "spicy and warm like cinnamon and cardamom",
+      "random": 0.3943404837973528,
+      "semantic_p10": 1.0,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.6,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "warm_spices",
+      "lang": "ar",
+      "query": "عطر حار ودافي زي القرفة والهيل",
+      "random": 0.3943404837973528,
+      "semantic_p10": 1.0,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "creamy_woods",
+      "lang": "en",
+      "query": "creamy soft sandalwood",
+      "random": 0.26791419443176634,
+      "semantic_p10": 0.9,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.1,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "creamy_woods",
+      "lang": "ar",
+      "query": "خشب صندل كريمي وناعم",
+      "random": 0.26791419443176634,
+      "semantic_p10": 1.0,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "juicy_fruits",
+      "lang": "en",
+      "query": "juicy fruity perfume with peach and berries",
+      "random": 0.16065723413966226,
+      "semantic_p10": 0.8,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.3,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "juicy_fruits",
+      "lang": "ar",
+      "query": "عطر فواكه زي الدراق والتوت",
+      "random": 0.16065723413966226,
+      "semantic_p10": 0.6,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "old_church",
+      "lang": "en",
+      "query": "smells like an old church",
+      "random": 0.19169329073482427,
+      "semantic_p10": 0.5,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.1,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "old_church",
+      "lang": "ar",
+      "query": "ريحة بخور زي الكنائس القديمة",
+      "random": 0.19169329073482427,
+      "semantic_p10": 0.7,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "white_flowers",
+      "lang": "en",
+      "query": "white flowers like jasmine and tuberose",
+      "random": 0.31811958010041075,
+      "semantic_p10": 1.0,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.4,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "white_flowers",
+      "lang": "ar",
+      "query": "ورود بيضاء زي الياسمين ومسك الروم",
+      "random": 0.31811958010041075,
+      "semantic_p10": 0.6,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "earthy_green",
+      "lang": "en",
+      "query": "earthy green forest after rain",
+      "random": 0.4554997717937015,
+      "semantic_p10": 0.6,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.6,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "earthy_green",
+      "lang": "ar",
+      "query": "ريحة غابة خضراء وتراب بعد المطر",
+      "random": 0.4554997717937015,
+      "semantic_p10": 0.6,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    },
+    {
+      "id": "morning_coffee",
+      "lang": "en",
+      "query": "a coffee scent for the morning",
+      "random": 0.023733455043359195,
+      "semantic_p10": 1.0,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.2,
+      "keyword_hit10": 1.0,
+      "keyword_no_results": 0.0
+    },
+    {
+      "id": "morning_coffee",
+      "lang": "ar",
+      "query": "ريحة قهوة للصبح",
+      "random": 0.023733455043359195,
+      "semantic_p10": 0.9,
+      "semantic_hit10": 1.0,
+      "keyword_p10": 0.0,
+      "keyword_hit10": 0.0,
+      "keyword_no_results": 1.0
+    }
+  ]
+}

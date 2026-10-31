@@ -1,0 +1,21 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Local data and caches (the dataset is downloaded from Kaggle, see data/raw/README.md)
+data/raw/*
+!data/raw/README.md
+.cache/
+
+# Tools and OS
+.vercel/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

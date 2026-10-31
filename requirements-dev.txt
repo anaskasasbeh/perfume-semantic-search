@@ -1,0 +1,7 @@
+# Everything needed on your machine: build the artifacts, run the site locally, run the tests.
+-r requirements.txt
+pandas==3.1.0
+ftfy==6.3.1
+uvicorn==0.54.0
+pytest==9.2.0
+httpx2==2.16.0

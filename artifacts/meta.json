@@ -1,0 +1,27 @@
+{
+  "built_at": "2026-10-31T13:41:24+00:00",
+  "model": "gemini-embedding-001",
+  "dim": 768,
+  "perfumes": 2191,
+  "perfumes_without_notes": 80,
+  "brands": 249,
+  "embedding_text": "base name + notes (description snippet only when notes are missing)",
+  "k": 5,
+  "silhouette_by_k": {
+    "5": 0.042,
+    "6": 0.0361,
+    "7": 0.0343,
+    "8": 0.0348,
+    "9": 0.0356,
+    "10": 0.0357,
+    "11": 0.0374,
+    "12": 0.0367
+  },
+  "group_sizes": [
+    579,
+    550,
+    531,
+    411,
+    120
+  ]
+}
