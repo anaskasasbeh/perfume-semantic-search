@@ -2,9 +2,9 @@
 
 **Describe the scent you want in plain English or Arabic, and get matching perfumes from a catalog of 2,191.** Built with Gemini embeddings, FastAPI and a lightweight bilingual front end, deployed for free on Render.
 
-🔗 **Live demo:** _coming soon_
+🔗 **Live demo:** https://perfume-semantic-search.onrender.com
 
-![Search results for "smells like clean laundry"](assets/desktop-2-mood-search.png)
+![Perfume Semantic Search: English search on a laptop, Arabic search on a phone](assets/hero.png)
 
 ---
 
@@ -39,35 +39,7 @@ flowchart LR
 
 ## Screenshots
 
-**Laptop, English**
-
-<table>
-  <tr>
-    <th>Home: scent families</th>
-    <th>Notes filter on top of a search</th>
-    <th>Details and "more like this"</th>
-  </tr>
-  <tr>
-    <td><img src="assets/desktop-1-home.png" alt="Home page with scent family rows"></td>
-    <td><img src="assets/desktop-4-note-filter.png" alt="Search with rose required and vanilla excluded"></td>
-    <td><img src="assets/desktop-5-details.png" alt="Perfume details with similar perfumes"></td>
-  </tr>
-</table>
-
-**Phone, Arabic**
-
-<table>
-  <tr>
-    <th>الصفحة الرئيسية</th>
-    <th>بحث باللهجة الأردنية</th>
-    <th>تفاصيل العطر</th>
-  </tr>
-  <tr>
-    <td><img src="assets/mobile-1-home.png" alt="Arabic home page on a phone" width="240"></td>
-    <td><img src="assets/mobile-3-free-search.png" alt="Arabic dialect search on a phone" width="240"></td>
-    <td><img src="assets/mobile-5-details.png" alt="Perfume details in Arabic on a phone" width="240"></td>
-  </tr>
-</table>
+![Perfume details with key notes: Arabic on a phone, English on a laptop](assets/details.png)
 
 ## Features
 
