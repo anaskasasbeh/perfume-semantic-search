@@ -1,4 +1,4 @@
-"""Entrypoint for Vercel and for local runs: `uvicorn app:app --reload`."""
+"""Entrypoint for the host and for local runs: `uvicorn app:app --reload`."""
 
 from perfume_search.api import app
 

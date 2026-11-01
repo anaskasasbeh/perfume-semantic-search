@@ -1,0 +1,13 @@
+# Render Blueprint: Dashboard → New → Blueprint → pick this repository.
+# Python version comes from .python-version.
+services:
+  - type: web
+    name: perfume-semantic-search
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false # Render asks for the value; it never lives in the repo

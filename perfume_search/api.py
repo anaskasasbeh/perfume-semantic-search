@@ -17,7 +17,7 @@ from .notes import NOTES_BY_ID
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s: %(message)s")
 log = logging.getLogger(__name__)
 
-# CDN caching: identical requests are answered by Vercel's edge, not the function.
+# Cache headers: browsers (and a CDN, if one is in front) reuse identical responses.
 STATIC_CACHE = "public, max-age=3600, s-maxage=86400"
 IMAGE_CACHE = "public, max-age=604800, s-maxage=31536000, immutable"
 SEARCH_CACHE = "public, max-age=600, s-maxage=86400"

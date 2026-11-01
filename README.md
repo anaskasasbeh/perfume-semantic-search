@@ -1,6 +1,6 @@
 # Perfume Semantic Search
 
-**Describe the scent you want in plain English or Arabic, and get matching perfumes from a catalog of 2,191.** Built with Gemini embeddings, FastAPI and a lightweight bilingual front end, deployed for free on Vercel.
+**Describe the scent you want in plain English or Arabic, and get matching perfumes from a catalog of 2,191.** Built with Gemini embeddings, FastAPI and a lightweight bilingual front end, deployed for free on Render.
 
 🔗 **Live demo:** _coming soon_
 
@@ -25,7 +25,7 @@ flowchart LR
     C --> E[("artifacts/")]
     D --> E
   end
-  subgraph Live["Live site (Vercel)"]
+  subgraph Live["Live site (Render)"]
     U["Visitor query<br/>English or Arabic"] --> F["FastAPI<br/>/api/search"]
     F --> G{"Gemini<br/>RETRIEVAL_QUERY"}
     G -- ok --> H["Cosine similarity<br/>NumPy"]
@@ -76,9 +76,9 @@ flowchart LR
 - **More like this.** Nearest neighbours of any perfume; other sizes of the same scent are skipped.
 - **Filters.** Brand, plus notes to include or exclude ("with oud, without vanilla").
 - **Resilient by design.** If the embedding API is down or out of quota, search switches to TF-IDF keyword matching automatically, and every other feature keeps working because the perfume vectors are pre-computed.
-- **Quota-friendly.** Example queries are embedded at build time, identical catalog texts are embedded once, repeated queries are cached, and identical requests are served from Vercel's CDN.
+- **Quota-friendly.** Example queries are embedded at build time, identical catalog texts are embedded once, repeated queries are cached in memory, and responses carry cache headers so browsers reuse them.
 - **Bilingual interface** with right-to-left layout for Arabic.
-- **Image proxy.** Product images load from the retailer's link; if a browser refuses it, the API fetches the image server-side (catalog URLs only) and the CDN caches it.
+- **Image proxy.** Product images load from the retailer's link; if a browser refuses it, the API fetches the image server-side (catalog URLs only) and the browser caches it for a week.
 - **Documented REST API** at `/docs` (OpenAPI).
 
 ## Tech stack
@@ -91,7 +91,7 @@ flowchart LR
 | Backend | FastAPI, Pydantic |
 | Front end | HTML, CSS, vanilla JavaScript (no build step) |
 | Testing & quality | pytest, Ruff |
-| Deployment | Vercel (Python runtime, free Hobby plan) |
+| Deployment | Render (free web service, Blueprint in `render.yaml`) |
 
 ## Results
 
@@ -152,7 +152,7 @@ A 10-row sample is in [`data/sample/perfumes_sample.csv`](data/sample/perfumes_s
 
 ```
 perfume-semantic-search/
-├── app.py                    # entrypoint for Vercel and uvicorn
+├── app.py                    # entrypoint (uvicorn app:app)
 ├── perfume_search/
 │   ├── config.py             # paths and settings (env-overridable)
 │   ├── data.py               # load CSV, repair text, clean names/notes
@@ -166,15 +166,16 @@ perfume-semantic-search/
 │   ├── evaluate.py           # semantic vs keyword evaluation
 │   ├── images.py             # image link checker
 │   └── __main__.py           # CLI
-├── web/                      # front end (served by FastAPI / Vercel CDN)
+├── web/                      # front end (served by FastAPI)
 ├── artifacts/                # built vectors + catalog (committed, used by the API)
 ├── data/
 │   ├── raw/                  # Kaggle CSV goes here (not committed)
 │   ├── sample/               # 10-row sample
 │   └── eval/queries.json     # 30 evaluation queries (15 EN + 15 AR)
 ├── reports/                  # evaluation and image-check results
-├── tests/                    # 27 pytest tests, no network needed
-├── requirements.txt          # runtime (what Vercel installs)
+├── tests/                    # 28 pytest tests, no network needed
+├── requirements.txt          # runtime (what the host installs)
+├── render.yaml               # Render deployment (Blueprint)
 └── requirements-dev.txt      # build, local server, tests
 ```
 
@@ -205,12 +206,13 @@ python -m pytest -q
 
 Without a key the site still runs, in keyword (TF-IDF) mode.
 
-## Deploy to Vercel (free)
+## Deploy to Render (free)
 
 1. Push the repository to GitHub, **including `artifacts/`**.
-2. In Vercel: **Add New → Project →** import the repository. The FastAPI preset is detected from `app.py`.
-3. **Settings → Environment Variables:** add `GEMINI_API_KEY`.
-4. Deploy. The site is served at `/`, the API at `/api/*`, and its docs at `/docs`.
+2. In Render: **New → Blueprint →** connect the repository. Render reads [`render.yaml`](render.yaml) and asks for `GEMINI_API_KEY`.
+3. Deploy. The site is served at `/`, the API at `/api/*`, and its docs at `/docs`. Every push to `main` redeploys.
+
+`vercel.json` is also included if you prefer Vercel.
 
 ## API
 
@@ -233,6 +235,7 @@ Without a key the site still runs, in keyword (TF-IDF) mode.
 - Scent families come from unsupervised clustering, so the groups overlap and are best read as browsing aids, not official fragrance families.
 - Note matching for filters uses a 70-note catalog with whole-word rules, so rare notes are not filterable.
 - Product images are hot-linked from the retailer and may disappear; a placeholder is shown instead.
+- The free Render instance sleeps after 15 minutes without visitors, so the first visit after that waits about a minute while it starts.
 
 ## Future work
 

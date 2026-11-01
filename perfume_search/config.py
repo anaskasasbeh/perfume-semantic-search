@@ -1,7 +1,7 @@
 """Project paths and settings.
 
 Every value can be overridden with an environment variable, so the same code
-runs on a laptop, in tests and on Vercel without edits.
+runs on a laptop, in tests and on the host without edits.
 """
 
 from __future__ import annotations
@@ -15,7 +15,7 @@ ROOT = Path(__file__).resolve().parent.parent
 def load_dotenv(path: Path = ROOT / ".env") -> None:
     """Load KEY=VALUE pairs from a local .env file (no extra dependency).
 
-    Non-empty values already present in the environment win, so Vercel's
+    Non-empty values already present in the environment win, so the host's
     dashboard settings are never overwritten.
     """
     if not path.exists():
